@@ -1,5 +1,5 @@
 import { ValueSignal, effect } from "./signals";
-import { Seed, SeedNode } from "./seed";
+import { Seed, SeedNode, SeedElementProps } from "./seed";
 
 export interface IfProps {
   cond: ValueSignal<boolean>;
@@ -47,4 +47,16 @@ export function If(props: IfProps): IfNode {
       return n;
     },
   };
+}
+
+export function button(props?: SeedElementProps) {
+  return Seed("button", props);
+}
+
+export function br() {
+  return Seed("br");
+}
+
+export function text(content: string) {
+  return Seed(3, content);
 }

@@ -1,14 +1,14 @@
 import { valueSignal, ValueSignal } from "./seeds/signals";
-import { Seed, SeedNode } from "./seeds/seed";
+import { SeedNode } from "./seeds/seed";
 import "./App.css";
-import { If } from "./seeds/lib";
+import { button, If, text, br } from "./seeds/lib";
 
 function App(): SeedNode[] {
   const class_ = valueSignal<(string | ValueSignal<string>)[]>(["white"]);
   const cond = valueSignal(!true);
   return [
-    Seed("button", {
-      children: [Seed(3, "toggle")],
+    button({
+      children: [text("toggle")],
       classes: class_,
       attrs: {
         "data-set": "set_data",
@@ -17,11 +17,11 @@ function App(): SeedNode[] {
         cond(!cond());
       },
     }),
-    Seed("br"),
+    br(),
     If({
       cond,
-      then: () => Seed(3, "Yes"),
-      else: () => Seed(3, "No"),
+      then: () => text("Yes"),
+      else: () => text("No"),
     }),
   ];
 }
