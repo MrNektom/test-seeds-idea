@@ -1,0 +1,15 @@
+button {
+    border: 0;
+    border-radius: 5px;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: #c0c0c0;
+}
+
+button:active {
+    background-color: #a0a0a0;
+}
